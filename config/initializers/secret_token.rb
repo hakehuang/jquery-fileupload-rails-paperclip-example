@@ -4,4 +4,4 @@
 # If you change this key, all old signed cookies will become invalid!
 # Make sure the secret is at least 30 characters and all random,
 # no regular words or you'll be exposed to dictionary attacks.
-JqueryFileuploadRailsExample::Application.config.secret_token = '53799ea9a3d06ff292dc489c308943155ef18f4a6aaab7176c4b8fcfc123294e3ff69df9327c65d0c0021efe3feb8b57ce8c233802916f76ee13737fda04983c'
+JqueryFileuploadRailsExample::Application.config.secret_key_base = '742ae41b32ecfd57436928435d1129d9ecea2cdc98cc474c48539703f0f182b574def0d0bbd794bbb3a3a3987e6fea67ed2e79f18422bef9404333aefd9b7cc4'
