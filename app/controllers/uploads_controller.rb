@@ -62,7 +62,7 @@ class UploadsController < ApplicationController
   # PUT /uploads/1.json
   def update
     @upload = Upload.find(params[:id])
-
+    params[:upload].permit!
     respond_to do |format|
       if @upload.update_attributes(params[:upload])
         format.html { redirect_to @upload, notice: 'Upload was successfully updated.' }
