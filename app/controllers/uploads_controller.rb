@@ -40,6 +40,7 @@ class UploadsController < ApplicationController
   # POST /uploads
   # POST /uploads.json
   def create
+    params[:upload].permit!
     @upload = Upload.new(params[:upload])
 
     respond_to do |format|
@@ -84,4 +85,11 @@ class UploadsController < ApplicationController
       format.json { head :no_content }
     end
   end
+
+  private
+  
+  #def params
+  #  params.require(:upload).permit(:name, :side, :url, :delete_url, :delete_type)
+  #end
+
 end
