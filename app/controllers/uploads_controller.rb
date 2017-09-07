@@ -85,11 +85,15 @@ class UploadsController < ApplicationController
       format.json { head :no_content }
     end
   end
-
-  private
   
-  #def params
-  #  params.require(:upload).permit(:name, :side, :url, :delete_url, :delete_type)
-  #end
+  def call_map
+     @upload_file = Upload.find_by_id(params[:id])
+     logger.debug @upload_file.upload.original_filename
+     logger.debug @upload_file.upload.path
+     respond_to do |format|
+      format.html { redirect_to uploads_url }
+      format.json { render json: @upload_file }
+    end
+  end
 
 end
