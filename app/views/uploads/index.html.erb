@@ -135,7 +135,7 @@
   });
 </script>
 
-<h1>Listing all SRS</h1>
+<h1>Listing all STD</h1>
  
 <table>
   <tr>
@@ -149,10 +149,15 @@
     <tr>
       <td><%= link_to srs.upload.original_filename, srs.upload.url %></td>
       <td><%= number_to_human(srs.upload.size, units: {unit: "B", thousand: "KB", million: "MB", billion: "GB"}) %></td>
-      <td><%= button_to "map srs", action: "call_map" ,params: { 'id': srs.id} %></td>
+      <td><%= button_to "map srs", call_map_uploads_path(:id => srs.id), :method => "get", :remote => true %></td>
       <td><%= link_to 'Destroy', upload_path(srs),
               method: :delete,
               data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>
 </table>
+
+<div id="result">
+<%= render partial: "call_map_partial", locals: {status: "", items: nil} %>
+</div>
+

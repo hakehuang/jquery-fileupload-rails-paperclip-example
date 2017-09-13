@@ -1,7 +1,8 @@
 JqueryFileuploadRailsExample::Application.routes.draw do
   resources :uploads do
    collection do 
-      post 'call_map'
+      #post 'call_map', defaults: { format: 'js' }
+      get '/call_map' => 'uploads#call_map', as: 'call_map'
     end
   end
   root :to => 'uploads#index'
